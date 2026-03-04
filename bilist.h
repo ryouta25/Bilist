@@ -69,3 +69,15 @@ void show_list(BiList<T>* head) {
     }
     std::cout << std::endl;
 }
+
+template< class T >
+BiList<T>* clear_all(BiList<T>* head) {
+    while (head) {
+        BiList<T>* temp = head;
+        head = head->next;
+        delete temp;
+    }
+    return nullptr;
+}
+
+#endif
