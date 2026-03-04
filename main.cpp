@@ -1,5 +1,5 @@
 #include <iostream>
-#include "biList.h"
+#include "bilist.h"
 
 int main() {
     BiList<char>* head = nullptr;
