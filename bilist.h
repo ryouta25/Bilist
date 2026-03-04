@@ -42,3 +42,30 @@ BiList<T>* add_back(BiList<T>* head, const T& val) {
 
     return head;
 }
+
+template< class T >
+BiList<T>* delete_item(BiList<T>* head, const T& val) {
+    BiList<T>* current = head;
+    while (current) {
+        if (current->data == val) { // T должен поддерживать оператор ==
+            if (current->prev) current->prev->next = current->next;
+            if (current->next) current->next->prev = current->prev;
+
+            BiList<T>* newHead = (current == head) ? current->next : head;
+            delete current;
+            return newHead;
+        }
+        current = current->next;
+    }
+    return head;
+}
+
+template< class T >
+void show_list(BiList<T>* head) {
+    BiList<T>* current = head;
+    while (current) {
+        std::cout << current->data << " "; // T должен поддерживать оператор <<
+        current = current->next;
+    }
+    std::cout << std::endl;
+}
